@@ -1,0 +1,116 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  width: 30vw;
+  margin-left: 5vw;
+  margin-top: 3vh;
+  align-items: center;
+}
+form input{
+  border: none;
+  background-color: #292929;
+  padding: 1.5rem;
+  width: 100%;
+  border-radius: 10px;
+  color:white;
+  cursor: pointer;
+}
+form input:focus{
+  outline: none;
+  border: 1px solid #72db73;
+}
+.login-form{
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+  form{
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    align-items: center;
+    margin-left: 40vw;
+ 
+  }
+  form input[type="checkbox"]{
+    margin-left: 5vw;
+  }
+
+  .login-poster{
+    display: none;
+  }
+  .login-form{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh;
+  }
+  .login-form form input{
+    width: 100%;
+  }
+  .login{
+    margin-left: 20%;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  form{
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    align-items: center;
+  
+  }
+  form input{
+    width: 100%;
+  }  
+  .login-poster{
+    display: none;
+  }
+  .login-form{
+    width: 80vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh;
+    
+  }
+  .login{
+   width: 100%;
+  }
+}
+
