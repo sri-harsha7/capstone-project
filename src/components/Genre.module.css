@@ -1,0 +1,71 @@
+.genre{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+}
+.left{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3vh;
+}
+.right{
+    width: 60%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2vh;
+    align-items: center;
+
+}
+
+.title{
+    font-size: 2.5rem;
+    font-family: Single Day;
+    color: #72db73;
+    font-weight: bolder;
+}
+.subTitle{
+    font-size: 2rem;
+    color: #fff;
+    font-weight: bolder;
+}
+.card{
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+    border-radius: 1rem;
+   
+   
+}
+.selected{
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2vh;
+    align-items: center;
+    
+
+}
+
+.selectedItems{
+    font-size: 1rem;
+    color: #fff;
+    font-weight: bolder;
+    background-color: #72db73;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    text-align: center
+};
+
+.x{
+    cursor: pointer;
+    color: black ;
+}
