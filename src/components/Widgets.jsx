@@ -1,16 +1,21 @@
 import React, { useRef } from "react";
 import styles from "./Widgets.module.css";
 import avatar from "../assets/avatar-banner.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getNewsData } from "../utils/api";
 
 const Widgets = () => {
   const [notes, setNotes] = useState("");
+  const [news, setNews] = useState(null);
   const user = JSON.parse(localStorage.getItem("user"));
   const movies = JSON.parse(localStorage.getItem("selectedCard"));
   const divRef = useRef(null);
   const handleNotes = (e) => {
     setNotes(e.target.value);
   };
+  useEffect(() => {
+    getNewsData().then((data) => setNews(data.articles[2]));
+  }, []);
   return (
     <div
       className={styles.widgets}
@@ -104,7 +109,56 @@ const Widgets = () => {
         </div>
         <div style={{ backgroundColor: "pink", gridColumn: "1/-1" }}></div>
       </div>
-      <div style={{ backgroundColor: "blue" }}>Left Side</div>
+      <div style={{ backgroundColor: "white", borderRadius: "24px" }}>
+        {news === null ? (
+          <h1>Loading .....</h1>
+        ) : (
+          <>
+            <div
+              style={{
+                height: "50vh",
+                width: "35vw",
+                position: "relative",
+                overflow: "hidden",
+              }}
+            >
+              <img
+                src={news.urlToImage}
+                alt="image"
+                style={{
+                  objectFit: "fill",
+                  height: "100%",
+                  width: "100%",
+                  borderRadius: "30px",
+                }}
+              />
+              <div
+                style={{
+                  width: "100%",
+                  height: "10vh",
+                  position: "absolute",
+                  bottom: "0",
+                  color: "white",
+                  backgroundColor: "rgba(0, 0, 0, 0.5)",
+                  backdropFilter: "blur(10px)",
+                }}
+              >
+                <h3>{news.title}</h3>
+              </div>
+            </div>
+            <div
+              style={{
+                height: "50vh",
+                padding: "2rem",
+                color: "black",
+                overflowY: "scroll",
+              }}
+            >
+              {news.content}
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };
